@@ -1,0 +1,13 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Edit Sceance{% endblock %}
+
+{% block body %}
+    <h1>Edit Sceance</h1>
+
+    {{ include('sceance/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('sceance_index') }}">Retour</a>
+
+    {{ include('sceance/_delete_form.html.twig') }}
+{% endblock %}

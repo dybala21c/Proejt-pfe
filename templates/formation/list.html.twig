@@ -1,0 +1,47 @@
+
+
+{% block title %}formation{% endblock %}
+
+{% block body %}
+    <h1>Liste des Formations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+               <th>Id</th>
+                <th>Nom</th>
+                <th>Lien</th>
+                <th>Date formation</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in list_formations %}
+            <tr>
+                <td>{{ formation.id }}</td>
+                <td>{{ formation.nom }}</td>
+                <td>{{ formation.lieu }}</td>
+                <td>{{ formation.Date ? formation.Date|date('Y-m-d') : '' }}</td>
+                 <td>
+                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">edit<i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                </td>
+                 <td>
+                    <a href="{{ path('formation1_show', {'id': formation.id}) }}"> Show<i class="fa fa-eye" aria-hidden="true"></i></a>
+                </td>
+                {#
+                   {{ knp_pagination_render( grade1s )}}
+                #}
+               
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+  
+    <a href="{{ path('formation_new') }}">Ajouter</a>
+{% endblock %}

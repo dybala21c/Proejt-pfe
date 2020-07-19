@@ -1,0 +1,66 @@
+{%  extends "base_admin.html.twig" %}
+
+{% block title %}enseignant index{% endblock %}
+
+{% block body %}
+    <h1>la liste des enseignants</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Matricule</th>
+                <th>email</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>DateNaissance</th>
+                <th>Nationalité</th>
+                <th>Bureau</th>
+                <th>Grade</th>
+                <th>Niveau d'etude</th>
+                <th>Specialité</th>
+                <th>Scéance</th>
+
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for enseignant in enseignants %} 
+            <tr>
+                <td>{{ enseignant.id }}</td>
+                <td>{{ enseignant.Name }}</td>
+                <td>{{ enseignant.Prenom }}</td>
+                <td>{{ enseignant.Matricule }}</td>
+                <td>{{ enseignant.email }}</td>
+                <td>{{ enseignant.Adresse }}</td>
+                <td>{{ enseignant.Telephone }}</td>
+                <td>{{ enseignant.DateNaissance ? enseignant.DateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ enseignant.Nationalite }}</td>
+                <td>{{ enseignant.bureau.numero }}</td>
+                <td>{{ enseignant.grade.libelle }}</td>
+                <td>{{ enseignant.niveau.libelle}}</td>
+                <td>{{ enseignant.specialite.libelle }}</td>
+                <td>{{ enseignant.Sceance.libelle }}</td>
+               {#
+                   <td><a href="{{ path('show_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                </td>
+                 
+                <td>
+                    <a href="{{ path('grade1_edit', {'id': grade1.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                </td>
+                #}
+             
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     {{ knp_pagination_render( enseignants )}}
+    <a href="{{ path('enseignant_registration') }}">Ajouter un enseignant</a>
+{% endblock %}

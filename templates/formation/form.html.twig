@@ -1,0 +1,12 @@
+
+{% block title %} formation {% endblock %}
+
+{% block body %}
+
+ <h1>  {{ titre }} une formation </h1>
+  {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+{% endblock %}

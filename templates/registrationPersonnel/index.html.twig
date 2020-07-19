@@ -1,0 +1,59 @@
+{%  extends "base_admin.html.twig" %}
+
+{% block title %}personnels index{% endblock %}
+
+{% block body %}
+    <h1>la liste des personnels</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Cin</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Username</th>
+                <th>Adresse</th>
+                <th>Telephone</th>
+                <th>DateNaissance</th>
+                <th>Bureau</th>
+                <th>Categorie</th>
+                <th>Grade</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for personnel in personnels %}
+            <tr>
+                <td>{{ personnel.id }}</td>
+                <td>{{ personnel.Cin }}</td>
+                <td>{{ personnel.Nom }}</td>
+                <td>{{ personnel.Prenom }}</td>
+                <td>{{ personnel.username }}</td>
+                <td>{{ personnel.Adresse }}</td>
+                <td>{{ personnel.Telephone }}</td>
+                <td>{{ personnel.DateNaissance ? personnel.DateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ personnel.bureau.numero }}</td>
+                <td>{{ personnel.categorie.libelle }}</td>
+                <td>{{ personnel.grade.libelle }}</td>
+                <td>
+                    <a href="#"></i></a>
+                </td>
+                
+                <td>
+                    <a href="#"></i></a>
+                </td>
+                
+             
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     {{ knp_pagination_render( personnels )}}
+    <a href="{{ path('app_register1') }}">Ajouter un personnel</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+
+{% block title %}Hello FormationController!{% endblock %}
+
+{% block body %}
+
+{% for formation in formations %}
+{{formation.nom}}
+{{formation.lieu}}
+<a href="{{path('show_formation',{'id': formation.id})}}">Lire la suite</a>
+
+
+<br>
+<br>
+{% endfor %}
+{% endblock %}

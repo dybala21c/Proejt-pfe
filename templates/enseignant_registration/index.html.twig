@@ -1,0 +1,35 @@
+{%  extends "base_admin.html.twig" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Inscription Enseignant</h1>
+
+    {{ form_start(form) }}
+        
+        {{ form_row(form.Matricule) }}
+        {{ form_row(form.Name) }}
+        {{ form_row(form.Prenom) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.Date_Naissance) }}
+        {{ form_row(form.Adresse) }}
+        {{ form_row(form.Telephone) }}
+        {{ form_row(form.Nationalite) }}
+        {{ form_row(form.bureau) }}
+        {{ form_row(form.Grade) }}
+        {{ form_row(form.specialite) }}
+        {{ form_row(form.Niveau) }}
+        {{ form_row(form.Sceance) }}
+        {{ form_row(form.password, {
+            'label': 'Password'
+        }) }}
+        
+
+        <button type="submit" class="btn">Ajouter</button>
+    {{ form_end(form) }}
+    
+{% endblock %}

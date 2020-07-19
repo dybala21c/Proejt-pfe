@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="icon" href="images/favicon.ico" type="image/ico" />
+ 
+  
+
+    <title>index administrateur </title>
+    <!--form-->
+     <!-- Icons font CSS-->
+    <link href="{{asset('Form_inscription/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+
+    <link href="{{asset('Form_inscription/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+
+    <!-- Font special for pages-->
+    <link href="{{asset('Form_inscription/https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i')}}" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{{asset('Form_inscription/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
+    
+    <link href="{{asset('Form_inscription/vendor/datepicker/daterangepicker.css')}}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{{asset('Form_inscription/css/main.css')}}" rel="stylesheet" media="all">
+
+    <!---->
+
+
+    <!-- Bootstrap -->
+    <link href="{{asset('Template_admin/vendors/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="{{asset('Template_admin/vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="{{asset('Template_admin/vendors/nprogress/nprogress.css')}}" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="{{asset('Template_admin/vendors/iCheck/skins/flat/green.css')}}" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="{{asset('Template_admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="{{asset('Template_admin/vendors/jqvmap/dist/jqvmap.min.css')}}" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="{{asset('Template_admin/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="{{asset('Template_admin/build/css/custom.min.css')}}" rel="stylesheet">
+
+  <!-- Formulaire de contact -->
+
+  <link rel="icon" type="image/png" href="{{asset('Form_Contact/images/icons/favicon.ico')}}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/fonts/iconic/css/material-design-iconic-font.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/vendor/animsition/css/animsition.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/vendor/daterangepicker/daterangepicker.css')}}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('Form_Contact/css/main.css')}}">
+
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gestion Employé</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="{{asset('Template_admin/images/FB_IMG_1568852010474.jpg')}}" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>Bienvenue,</span>
+                <h2>Conde</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>Menu</h3>
+                <ul class="nav side-menu">
+                   <li><a><i class="fa fa-user-o"></i> Employés <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{path('list_enseignant')}}">Enseignants</a></li>
+                      <li><a href="{{path('list_personnel')}}">Personnels</a></li>
+                      
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-align-justify"></i> Actualités <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{path('annonce_index')}}">Annonces</a></li>
+                    
+                      
+                    </ul>
+                  </li>
+                     <li><a><i class="fa fa-barcode"></i> Liste <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{path('bureau_index')}}">Bureau</a></li>
+                      <li><a href="{{path('categorie_index')}}">Categorie</a></li>
+                      <li><a href="{{path('specialite_index')}}">Specialite</a></li>
+                      <li><a href="{{path('grade1_index')}}">Grade</a></li>
+                       <li><a href="{{path('niveau_etude_index')}}">Niveau</a></li>
+                    </ul>
+                  </li>
+                  
+                  <li><a href="#"> Activités Scientifique <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                          <li><a href="{{path('formation')}}">Formation</a></li>
+                          <li><a href="#">Séminaire</a></li>
+                          <li><a href="#">Conférence</a></li>
+                      </ul>
+                  </li>
+                    <li><a href="#">Demandes<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                          <li><a href="#">Congé</a></li> 
+                          <li><a href="#">Mutation</a></li>                       
+                          <li><a href="#">Attestation Travail</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="#"> Sanctions</a></li>
+                  <li><a href="#"> Contacts</a></li>
+                 
+   
+                  
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                  <a href="{{path('app_logout')}}" class="user-profile dropdown-toggle"
+                   aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                   Deconnexion
+                  </a>
+                  
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            {% block body %}
+
+            {% endblock %}
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            Condé Mamady Admin          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+    <!---->
+    <!-- Jquery JS-->
+    <script src="{{asset('Form_inscription/vendor/jquery/jquery.min.js ')}}"></script>
+    <!-- Vendor JS-->
+    <script src="{{asset('Form_inscription/vendor/select2/select2.min.js ')}}"></script>
+    <script src="{{asset('Form_inscription/vendor/datepicker/moment.min.js ')}}"></script>
+    <script src="{{asset('Form_inscription/vendor/datepicker/daterangepicker.js ')}}"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+    <!---->
+    <!--Formulaire de contact-->
+
+  <!--===============================================================================================-->
+	<script src="{{asset('Form_Contact/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('Form_Contact/vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('Form_Contact/vendor/bootstrap/js/popper.js')}}"></script>
+	<script src="{{asset('Form_Contact/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('Form_Contact/vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('Form_Contact/vendor/daterangepicker/moment.min.js')}}"></script>
+	<script src="{{asset('Form_Contact/vendor/daterangepicker/daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('Form_Contact/vendor/countdowntime/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+	<script src="{{asset('Form_Contact/js/main.js')}}"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="{{asset('Form_Contact/https://www.googletagmanager.com/gtag/js?id=UA-23581568-13')}}"></script>
+
+
+
+    <!-- jQuery -->
+    <script src="{{asset('Template_admin/vendors/jquery/dist/jquery.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{asset('Template_admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- FastClick -->
+    <script src="{{asset('Template_admin/vendors/fastclick/lib/fastclick.js')}}"></script>
+    <!-- NProgress -->
+    <script src="{{asset('Template_admin/vendors/nprogress/nprogress.js')}}"></script>
+    <!-- Chart.js -->
+    <script src="{{asset('Template_admin/vendors/Chart.js/dist/Chart.min.js')}}"></script>
+    <!-- gauge.js -->
+    <script src="{{asset('Template_admin/vendors/gauge.js/dist/gauge.min.js')}}"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="{{asset('Template_admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+    <!-- iCheck -->
+    <script src="{{asset('Template_admin/vendors/iCheck/icheck.min.js')}}"></script>
+    <!-- Skycons -->
+    <script src="{{asset('Template_admin/vendors/skycons/skycons.js')}}"></script>
+    <!-- Flot -->
+    <script src="{{asset('Template_admin/vendors/Flot/jquery.flot.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/Flot/jquery.flot.pie.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/Flot/jquery.flot.time.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/Flot/jquery.flot.stack.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/Flot/jquery.flot.resize.js')}}"></script>
+    <!-- Flot plugins -->
+    <script src="{{asset('Template_admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/flot-spline/js/jquery.flot.spline.min.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/flot.curvedlines/curvedLines.js')}}"></script>
+    <!-- DateJS -->
+    <script src="{{asset('Template_admin/vendors/DateJS/build/date.js')}}"></script>
+    <!-- JQVMap -->
+    <script src="{{asset('Template_admin/vendors/jqvmap/dist/jquery.vmap.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="{{asset('Template_admin/vendors/moment/min/moment.min.js')}}"></script>
+    <script src="{{asset('Template_admin/vendors/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="{{asset('Template_admin/build/js/custom.min.js')}}"></script>
+	
+  </body>
+</html>

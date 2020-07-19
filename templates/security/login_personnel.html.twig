@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('template_user/scss/main.css')}}">
+    <link rel="stylesheet" href="{{asset('template_user/scss/skin.css')}}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="{{asset('template_user/./script/index.js')}}"></script>
+</head>
+
+<body id="wrapper">
+  <section id="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 top-header-links">
+                    <ul class="contact_links">
+                        <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <ul class="social_links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+    <section id="top_banner">
+        <div class="banner">
+            <div class="inner text-center">
+                <h2>Bienvenue sur la page de connexion personnel</h2>
+            </div>
+        </div>
+        <div class="page_info">
+            
+        </div>
+
+        
+    </section>
+ <section id="login-reg">
+        <div class="container">
+            <!-- Top content -->
+            <div class="row">
+                <div class="col-md-6 col-sm-12 forms-right-icons">
+                    <div class="section-heading">
+                        <h2><span>Vous êtes:</span></h2>
+                        <p class="subheading">Sur la page de connexion du personnel
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-user"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4>Personnel</h4>
+                            <p>Veuillez remplire correctement ces champs pour vous connectez à votre espace personnel</p>
+                        </div>
+                    </div>
+                   
+                </div>
+
+
+                <!-- #################################################################################################################### -->   
+
+ 
+                <div class="col-md-6 col-sm-12">
+
+                    <div class="form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Connectez-vous!</h3>
+                                <p>Entrer votre Username et password :</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <form role="form" action="" method ="post" class="login-form">
+                             {% if error %}
+                                  <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                              {% endif %}
+
+                             {% if app.user %}
+                              <div class="mb-3">
+                                  Vous êtes connecté en tant que <span>{{ app.user.username }}</span>, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                              </div>
+                             {% endif %}
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+                                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" 
+                                    class="form-control" placeholder="Username" aria-describedby="basic-addon1"
+                                    required autofocus>
+                                   
+                                </div>
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-unlock"></i></span>
+                                    <input type="password" name="password" id="inputPassword" class="form-control" 
+                                     class="form-control" placeholder="Password" aria-describedby="basic-addon1"
+                                    required>
+                                    <input type="hidden" name="_csrf_token"
+                                         value="{{ csrf_token('authenticate') }}"
+                                          >
+                                  
+                                </div>
+                                     {#
+                                           Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                                             See https://symfony.com/doc/current/security/remember_me.html
+
+                                    <div class="checkbox mb-3">
+                                    <label>
+                                    <input type="checkbox" name="_remember_me"> Remember me
+                                     </label>
+                                    </div>
+                                  #}
+
+                                <button type="submit" class="btn btn-lg btn-primary">Connexion!</button>
+        
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="social-login">
+                        <h3>ou connectez-vous avec:</h3>
+                        <div class="social-login-buttons">
+                            <a class="btn btn-link-1 btn-link-1-facebook" href="#">
+                                <i class="fa fa-facebook"></i> Facebook
+                            </a>
+                            <a class="btn btn-link-1 btn-link-1-twitter" href="#">
+                                <i class="fa fa-twitter"></i> Twitter
+                            </a>
+                            <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
+                                <i class="fa fa-google-plus"></i> Google Plus
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+    </section>

@@ -1,0 +1,10 @@
+
+{% block title %}Hello FormationController!{% endblock %}
+
+{% block body %}
+
+{{formations.nom}}
+{{formations.lieu}}
+<a href="{{path('inscription_formation',{'enseignant': app.user.id, 'formations': formations.id })}}" class="btn btn-primary">S'iscrire à la formation</a>
+
+{% endblock %}

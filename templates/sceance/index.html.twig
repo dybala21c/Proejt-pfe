@@ -1,0 +1,34 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Sceance index{% endblock %}
+
+{% block body %}
+    <h1>Sceance index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Libelle</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sceance in sceances %}
+            <tr>
+                <td>{{ sceance.id }}</td>
+                <td>{{ sceance.Libelle }}</td>
+                <td>
+                    <a href="{{ path('sceance_show', {'id': sceance.id}) }}">Détails</a>
+                    <a href="{{ path('sceance_edit', {'id': sceance.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sceance_new') }}">Ajouter</a>
+{% endblock %}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('template_user/scss/main.css')}}">
+    <link rel="stylesheet" href="{{asset('template_user/scss/skin.css')}}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="{{asset('template_user/./script/index.js')}}"></script>
+</head>
+
+<body id="wrapper">
+  <section id="top-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12 top-header-links">
+                    <ul class="contact_links">
+                        <li><i class="fa fa-phone"></i><a href="#">+91 848 594 5080</a></li>
+                        <li><i class="fa fa-envelope"></i><a href="#">sales@aspiresoftware.in</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <ul class="social_links">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+    <section id="top_banner">
+        <div class="banner">
+            <div class="inner text-center">
+                <h2>Bienvenue sur le site gestion des employés</h2>
+            </div>
+        </div>
+        <div class="page_info">
+            
+        </div>
+
+        
+    </section>
+    <section id="login-reg">
+        <div class="container">
+            <!-- Top content -->
+            <div class="row">
+                <div class="col-md-6 col-sm-12 forms-right-icons">
+                    <div class="section-heading">
+                        <h2><span>Connectez-vous avec:</span></h2>
+                        <p class="subheading">Choisissez votre statut de connection ci-dessous      <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-user"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4><span>Si vous êtes un enseignant</span></h4>
+                            <p>Veuillez saisir votre email et mot de passe pour vous connectez à votre espace enseignant</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-user"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4><span>Si vous êtes un personnel</span></h4>
+                            <p>Veuillez saisir votre username et mot de passe pour vous connectez à votre espace personnel</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+
+                    <div class="form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Faites votre choix</h3>
+                                <p>De connexion</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <div class="login-form">
+                               
+                                 <a href="{{path('app_login')}}"><button  class="btn">Enseignant</button><a>
+                                <br>
+                                <br>
+                                <a href="{{path('app_login2')}}"><button  class="btn">Personnel</button><a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-login">
+                        <h3>ou connectez-vous avec:</h3>
+                        <div class="social-login-buttons">
+                            <a class="btn btn-link-1 btn-link-1-facebook" href="#">
+                                <i class="fa fa-facebook"></i> Facebook
+                            </a>
+                            <a class="btn btn-link-1 btn-link-1-twitter" href="#">
+                                <i class="fa fa-twitter"></i> Twitter
+                            </a>
+                            <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
+                                <i class="fa fa-google-plus"></i> Google Plus
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+    </section>
+

@@ -1,0 +1,15 @@
+
+
+{% block title %}Hello InscriptionFormationController!{% endblock %}
+
+{% block body %}
+
+ {{ form_start(formInscriptionFormation)}}
+<div class="row">
+  <div class="col-sm-4">{{ form_row(formInscriptionFormation.Nom)}}</div> 
+  <div class="col-sm-4">{{ form_row(formInscriptionFormation.Email)}}</div> 
+ </div>
+ <button type="submit" class="btn btn-primary">S'inscrire</button>
+ {{ form_end(formInscriptionFormation)}}
+
+{% endblock %}
