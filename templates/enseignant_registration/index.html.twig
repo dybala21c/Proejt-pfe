@@ -7,7 +7,7 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1>Inscription Enseignant</h1>
+    <h1>{{ titre_enseignant }} Enseignant</h1>
 
     {{ form_start(form) }}
         
@@ -28,8 +28,10 @@
             'label': 'Password'
         }) }}
         
+        <br>
+       
 
-        <button type="submit" class="btn">Ajouter</button>
+        <button type="submit" class="btn">{{ titre_enseignant }} Enseignant</button>
     {{ form_end(form) }}
     
 {% endblock %}

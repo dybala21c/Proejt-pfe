@@ -16,12 +16,7 @@
                 <th>Adresse</th>
                 <th>Telephone</th>
                 <th>DateNaissance</th>
-                <th>Nationalité</th>
-                <th>Bureau</th>
-                <th>Grade</th>
-                <th>Niveau d'etude</th>
-                <th>Specialité</th>
-                <th>Scéance</th>
+               
 
                
             </tr>
@@ -37,20 +32,15 @@
                 <td>{{ enseignant.Adresse }}</td>
                 <td>{{ enseignant.Telephone }}</td>
                 <td>{{ enseignant.DateNaissance ? enseignant.DateNaissance|date('Y-m-d') : '' }}</td>
-                <td>{{ enseignant.Nationalite }}</td>
-                <td>{{ enseignant.bureau.numero }}</td>
-                <td>{{ enseignant.grade.libelle }}</td>
-                <td>{{ enseignant.niveau.libelle}}</td>
-                <td>{{ enseignant.specialite.libelle }}</td>
-                <td>{{ enseignant.Sceance.libelle }}</td>
-               {#
+             
+               
                    <td><a href="{{ path('show_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                 </td>
                  
                 <td>
-                    <a href="{{ path('grade1_edit', {'id': grade1.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    <a href="{{ path('edit_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                 </td>
-                #}
+                
              
                 
             </tr>

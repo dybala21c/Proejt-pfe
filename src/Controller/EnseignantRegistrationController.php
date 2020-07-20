@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 
 class EnseignantRegistrationController extends AbstractController
 {
@@ -44,6 +44,7 @@ class EnseignantRegistrationController extends AbstractController
 
         return $this->render('enseignant_registration/index.html.twig', [
             'form' => $form->createView(),
+            'titre_enseignant' => 'Ajouter',
         ]);
     }
     
@@ -66,6 +67,59 @@ class EnseignantRegistrationController extends AbstractController
         return $this->render('enseignant_registration/liste.html.twig', [
             'enseignants' => $enseignant
         ]);
+    }
+
+
+      /**
+     * @Route("/{id}/enseignant", name="show_enseignant", methods={"GET"})
+     */
+    public function show(Enseignant $enseignant): Response
+    {
+        return $this->render('enseignant_registration/show.html.twig', [
+            'enseignant' => $enseignant,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="edit_enseignant", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Enseignant $enseignant, UserPasswordEncoderInterface $passwordEncoder): Response
+    {
+        $form = $this->createForm(EnseignantRegistrationType::class, $enseignant);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $enseignant->setPassword(
+                $passwordEncoder->encodePassword(
+                    $enseignant,
+                    $form->get('password')->getData()
+                )
+            );
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('list_enseignant');
+        }
+
+        return $this->render('enseignant_registration/index.html.twig', [
+            'enseignant' => $enseignant,
+            'titre_enseignant' => 'Modifier',
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/delete", name="delete_enseignant", methods={"DELETE"})
+     */
+    public function delete(Request $request, Enseignant $enseignant): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$enseignant->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($enseignant);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('list_enseignant');
     }
 
     
