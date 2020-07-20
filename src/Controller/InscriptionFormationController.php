@@ -6,9 +6,11 @@ use App\Entity\Enseignant;
 use App\Entity\Formation;
 use App\Entity\InscriptionFormation;
 use App\Form\InscriptionFormationType;
+use App\Repository\InscriptionFormationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class InscriptionFormationController extends AbstractController
@@ -47,4 +49,35 @@ class InscriptionFormationController extends AbstractController
             'formInscriptionFormation' =>$form->createView(),
         ]);
     }
+
+
+    /**
+     * @Route("/{id}/delete", name="inscription_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, InscriptionFormation $inscriptionformation): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$inscriptionformation->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($inscriptionformation);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('inscription_formation');
+    }
+
+
+      /**
+     * @Route("/list_inscription", name="list_inscription")
+     */
+    public function list(Request $request, InscriptionFormationRepository $inscriptionFormationRepository)
+    {
+        $repo = $this->getDoctrine()->getRepository(InscriptionFormation::class);
+        $inscriptionFormation = $repo->findAll();
+
+      
+        return $this->render('inscription_formation/list.html.twig', [
+            'list_formations' => $inscriptionFormation
+        ]);
+    }
+
 }

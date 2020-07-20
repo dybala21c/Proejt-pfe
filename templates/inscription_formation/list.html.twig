@@ -1,0 +1,40 @@
+ {% extends 'base_admin.html.twig' %}
+
+{% block title %}formation{% endblock %}
+
+{% block body %}
+    <h1>Liste des Formations</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>email</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for inscription in list_formations %}
+            <tr>
+                <td>{{ inscription.id }}</td>
+                <td>{{ inscription.nom }}</td>
+                <td>{{ inscription.email }}</td>
+                <td>{{ inscription.formation.lieu }}</td>
+                <td>{{ inscription.enseignant.name }}</td>
+                 
+                {#
+                   {{ knp_pagination_render( grade1s )}}
+                #}
+               
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

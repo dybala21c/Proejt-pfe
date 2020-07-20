@@ -1,4 +1,4 @@
-
+ {% extends 'base_admin.html.twig' %}
 
 {% block title %}formation{% endblock %}
 
@@ -23,10 +23,10 @@
                 <td>{{ formation.lieu }}</td>
                 <td>{{ formation.Date ? formation.Date|date('Y-m-d') : '' }}</td>
                  <td>
-                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">edit<i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    <a href="{{ path('formation_edit', {'id': formation.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                 </td>
                  <td>
-                    <a href="{{ path('formation1_show', {'id': formation.id}) }}"> Show<i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a href="{{ path('formation1_show', {'id': formation.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                 </td>
                 {#
                    {{ knp_pagination_render( grade1s )}}
