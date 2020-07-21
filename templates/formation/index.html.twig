@@ -3,13 +3,29 @@
 
 {% block body %}
 
+<h1> Formation </h1>
+
+
+ {#<td><img src="{{asset('formation_image/' ~ formation.photo) }}" height='200' weigth="200"> </td>#}
+
+<section id="features">
 {% for formation in formations %}
-{{formation.nom}}
-{{formation.lieu}}
-<a href="{{path('show_formation',{'id': formation.id})}}">Lire la suite</a>
-
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">                    
+                        <h4>{{formation.nom}}</h4>
+                        <p>ggggggggggggggggggggggggggggggggggggggdddddddddddddddddddddddddvgdgdgdggg</p>
+                       {# <p>{{ formation.description }}</p> #}
+                        <a href="{{path('show_formation',{'id': formation.id})}}" class="readmore">Lire la suite<i class="fa fa-caret-right"></i></a>
+                </div>
+            
+            </div>
+        </div>
+        <br><br>
+        {% endfor %}
+</section>
 
 <br>
 <br>
-{% endfor %}
+
 {% endblock %}

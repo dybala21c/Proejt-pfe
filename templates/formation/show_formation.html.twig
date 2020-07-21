@@ -3,10 +3,42 @@
 
 {% block body %}
 
-    <div>
-        {{formations.nom}}
-        {{formations.lieu}}
-        <a href="{{path('inscription_formation',{'enseignant': app.user.id, 'formations': formations.id })}}" class="btn btn-primary">S'iscrire à la formation</a>
+    <div>       
+          <section id="about">
+        <div class="image-holder col-lg-6 col-md-6 col-sm-6 col-xs-12 pull-left">
+        <br>
+        <br>
+        <br>
+        <br>
+            <div>
+                <img src="{{asset('formation_image/' ~ formation.photo) }}"  >
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <div class="col-md-7 col-md-offset-5 col-sm-8 col-sm-offset-2 col-xs-12 text-inner ">
+                <div class="text-block">
+                    <div class="section-heading">
+                        <h1> <span>{{formation.nom}} </span></h1>
+                        <p class="subheading">je suis une formation.</p>
+                     {#    <p class="subheading">{{ formation.description }}</p> #}
+                    </div>
+
+                    <ul class="aboutul">
+                        <li> <i class="fa fa-check"> {{formation.lieu}}</i></li>
+                        <li> <i class="fa fa-check"></i><td>{{ formation.Date ? formation.Date|date('Y-m-d') : '' }}</td></li>
+                     
+                    </ul>
+
+                <a href="{{path('inscription_formation',{'enseignant': app.user.id, 'formations': formation.id })}}" class="btn btn-primary slide">S'iscrire à la formation</a>                    
+
+
+                </div>
+            </div>
+        </div>
+    </section>
 
     </div>
 {% endblock %}
+

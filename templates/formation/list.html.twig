@@ -12,6 +12,7 @@
                 <th>Nom</th>
                 <th>Lien</th>
                 <th>Date formation</th>
+                <th>Photo</th>
                 
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ formation.nom }}</td>
                 <td>{{ formation.lieu }}</td>
                 <td>{{ formation.Date ? formation.Date|date('Y-m-d') : '' }}</td>
+                <td><img src="{{asset('formation_image/' ~ formation.photo) }}" height='100' weigth=" 50"> </td>
                  <td>
                     <a href="{{ path('formation_edit', {'id': formation.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
                 </td>

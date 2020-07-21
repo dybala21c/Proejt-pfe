@@ -7,9 +7,11 @@ use App\Form\FormationType;
 use App\Repository\FormationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class FormationController extends AbstractController
 {
@@ -34,20 +36,42 @@ class FormationController extends AbstractController
     {
      
         return $this->render('formation/show_formation.html.twig', [
-            'formations' => $formations,
+            'formation' => $formations,
         ]);
     }
 
        /**
      * @Route("/ajouter", name="formation_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $formation = new Formation();
         $form = $this->createForm(FormationType::class, $formation);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+                $image = $form->get('Photo')->getData();
+                if($image){
+                    $originalImage = pathinfo($image->getClientOriginalName(),PATHINFO_FILENAME);
+                    $safeImage = $slugger->slug($originalImage);
+                    $newImage = $safeImage.'-'.uniqid().'.'.$image->guessExtension();
+
+                    try
+                    {
+                        $image ->move(
+                            $this->getParameter('Image_directory'),
+                            $newImage
+                        );
+                    }
+                    catch(FileException $e)
+                    {
+
+                    }
+                }
+
+
+                $formation ->setPhoto($newImage);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($formation);
             $entityManager->flush();
@@ -78,7 +102,7 @@ class FormationController extends AbstractController
 
     
     /**
-     * @Route("/{id}/edit", name="formation_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit/formation", name="formation_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Formation $formation): Response
     {
