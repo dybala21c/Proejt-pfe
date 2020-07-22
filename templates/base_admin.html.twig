@@ -112,13 +112,14 @@
                       <li><a href="{{path('list_personnel')}}">Personnels</a></li>
                       
                     </ul>
+                     <li><a href="#">Demandes<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                          <li><a href="#">Congé</a></li> 
+                          <li><a href="#">Mutation</a></li>                       
+                          <li><a href="#">Attestation Travail</a></li>
+                      </ul>
                   </li>
-                  <li><a><i class="fa fa-align-justify"></i> Actualités <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="{{path('annonce_index')}}">Annonces</a></li>
-                    
-                      
-                    </ul>
+
                   </li>
                      <li><a><i class="fa fa-barcode"></i> Liste <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -129,23 +130,12 @@
                        <li><a href="{{path('niveau_etude_index')}}">Niveau</a></li>
                     </ul>
                   </li>
-                  
-                  <li><a href="#"> Activités Scientifique <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                          <li><a href="{{path('list_formation')}}">Formation</a></li>
-                          <li><a href="{{path('list_inscription')}}">La liste des inscrits</a></li>
-                          <li><a href="#">Conférence</a></li>
-                      </ul>
+                  <li>
+                      <li><a href="{{path('annonce_index')}}">Annonces</a></li>
                   </li>
-                    <li><a href="#">Demandes<span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                          <li><a href="#">Congé</a></li> 
-                          <li><a href="#">Mutation</a></li>                       
-                          <li><a href="#">Attestation Travail</a></li>
-                      </ul>
-                  </li>
+                   
                   <li><a href="#"> Sanctions</a></li>
-                  <li><a href="#"> Contacts</a></li>
+                  <li><a href="{{path('contact_index')}}"> Contacts</a></li>
                  
    
                   

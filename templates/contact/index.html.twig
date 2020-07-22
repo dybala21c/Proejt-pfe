@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Contact index{% endblock %}
 
@@ -24,11 +24,10 @@
                 <td>{{ contact.Nom }}</td>
                 <td>{{ contact.Email }}</td>
                 <td>{{ contact.Telephone }}</td>
-                <td>{{ contact.Objet }}</td>
+                <td>{{ contact.Objet }}</td> 
                 <td>{{ contact.Message }}</td>
                 <td>
                     <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -38,6 +37,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('contact_new') }}">Create new</a>
 {% endblock %}

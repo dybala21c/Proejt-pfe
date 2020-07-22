@@ -70,7 +70,7 @@ class EnseignantRegistrationController extends AbstractController
     }
 
 
-      /**
+    /**
      * @Route("/{id}/enseignant", name="show_enseignant", methods={"GET"})
      */
     public function show(Enseignant $enseignant): Response

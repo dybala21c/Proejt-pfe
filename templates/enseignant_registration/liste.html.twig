@@ -34,7 +34,8 @@
                 <td>{{ enseignant.DateNaissance ? enseignant.DateNaissance|date('Y-m-d') : '' }}</td>
              
                
-                   <td><a href="{{ path('show_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                <td>
+                    <a href="{{ path('show_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                 </td>
                  
                 <td>

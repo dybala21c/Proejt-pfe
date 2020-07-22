@@ -1,13 +1,75 @@
 {% extends 'base_user_enseignant.html.twig' %}
 
-{% block title %}Hello InscriptionFormationController!{% endblock %}
+{% block title %} {% endblock %}
 
 {% block body %}
 
- {{ form_start(formInscriptionFormation)}}
-    {{ form_widget(formInscriptionFormation) }}
- <button type="submit" class="btn btn-primary">S'inscrire</button>
- {{ form_end(formInscriptionFormation)}}
+    <section id="login-reg">
+        <div class="container">
+            <!-- Top content -->
+            <div class="row">
+                <div class="col-md-6 col-sm-12 forms-right-icons">
+                    <div class="section-heading">
+                        <h2>Sign Up With <span>Us</span></h2>
+                        <p class="subheading">Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum ea utamur impetus fuisset nam nostrud euismod volumus ne mei.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-laptop"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4>100% Responsive</h4>
+                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-bullhorn"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4>Powerful Features</h4>
+                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 icon"><i class="fa fa-support"></i></div>
+                        <div class="col-xs-10 datablock">
+                            <h4>Customer Support</h4>
+                            <p>Lorem ipsum dolor sit amet sit legimus copiosae instructior ei ut vix denique fierentis ea saperet inimicu ut qui dolor oratio mnesarchum.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Faites votre inscription ici</h3>
+                            </div>
+                        </div>
+                       
+
+                            {{ form_start(formInscriptionFormation)}}
+
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+                                    <input class="form-control" {{ form_widget(formInscriptionFormation.Nom,  {'attr':{'placeholder':'Nom'}})}}
+                                </div>
+                                
+                                <div class="input-group form-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+                                    <input class="form-control" {{ form_widget(formInscriptionFormation.Email,{'attr':{'placeholder':'Email'}})}}
+                                </div>
+                                
+                                 <button type="submit" class="btn btn-primary">S'inscrire</button>
+                           
+                            {{ form_end(formInscriptionFormation)}}
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
 
 {% endblock %}
  

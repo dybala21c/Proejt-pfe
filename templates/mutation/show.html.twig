@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mutation{% endblock %}
+
+{% block body %}
+    <h1>Mutation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mutation.id }}</td>
+            </tr>
+            <tr>
+                <th>Motif</th>
+                <td>{{ mutation.Motif }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('mutation_index') }}">back to list</a>
+
+    <a href="{{ path('mutation_edit', {'id': mutation.id}) }}">edit</a>
+
+    {{ include('mutation/_delete_form.html.twig') }}
+{% endblock %}

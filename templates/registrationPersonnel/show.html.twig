@@ -1,0 +1,26 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Personnel{% endblock %}
+
+{% block body %}
+    <h1>Personnel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ personnel.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ personnel.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('list_personnel', {'id': personnel.id}) }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+    <a href="{{ path('edit_personnel', {'id': personnel.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+
+    {{ include('registrationPersonnel/_delete.html.twig') }}
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\Personnel;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,20 +27,25 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="contact_new", methods={"GET","POST"})
+     * @Route("/ajout/{id}", name="contact_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request,$id): Response
     {
+        $repository = $this->getDoctrine()->getManager()->getRepository(Personnel::class);
+        $personnel = $repository->find($id);
+
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
+        $contact->setPersonnel($personnel);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $FormData = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
             $entityManager->flush();
 
-            return $this->redirectToRoute('contact_index');
+            return $this->redirectToRoute('home_personnel'); 
         }
 
         return $this->render('contact/new.html.twig', [

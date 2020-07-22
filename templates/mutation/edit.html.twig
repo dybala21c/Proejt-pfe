@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Mutation{% endblock %}
+
+{% block body %}
+    <h1>Edit Mutation</h1>
+
+    {{ include('mutation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('mutation_index') }}">back to list</a>
+
+    {{ include('mutation/_delete_form.html.twig') }}
+{% endblock %}

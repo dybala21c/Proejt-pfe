@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Enseignant;
 use App\Entity\Personnel;
 use App\Form\RegistrationFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -64,8 +63,60 @@ class RegistrationPersonnelController extends AbstractController
         );
 
         return $this->render('registrationPersonnel/index.html.twig', [
-            'personnels' => $personnel
+            'personnels' => $personnel,
         ]);
+    }
+
+/**
+     * @Route("/{id}/personnel", name="show_personnel", methods={"GET"})
+     */
+    public function show(Personnel $personnel): Response
+    {
+        return $this->render('registrationPersonnel/show.html.twig', [
+            'personnel' => $personnel,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/edit", name="edit_personnel", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Personnel $personnel, UserPasswordEncoderInterface $passwordEncoder): Response
+    {
+        $form = $this->createForm(RegistrationFormType::class, $personnel);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $personnel->setPassword(
+                $passwordEncoder->encodePassword(
+                    $personnel,
+                    $form->get('password')->getData()
+                )
+            );
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('list_personnel');
+        }
+
+        return $this->render('registrationPersonnel/index.html.twig', [
+            'enseignant' => $personnel,
+            'titre_personnel' => 'Modifier',
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/delete", name="delete_personnel", methods={"DELETE"})
+     */
+    public function delete(Request $request, Personnel $personnel): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$personnel->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($personnel);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('list_personnel');
     }
 
 }
