@@ -30,7 +30,9 @@ class RegistrationFormType extends AbstractType
             ->add('username')
             ->add('Adresse',TextType::class)
             ->add('Telephone',IntegerType::class)
-            ->add('DateNaissance',DateType::class)
+            ->add('DateNaissance',DateType::class, [ 
+                'widget' => 'single_text',
+            ])
             ->add('Service',TextType::class)
             ->add('Bureau',EntityType::class,[
                 'class'=>Bureau::class,
@@ -52,22 +54,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'mapped' => false,
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ],
-            ])
+            ->add('password', PasswordType::class)
         ;
     }
 

@@ -21,10 +21,15 @@
         {{ form_row(registrationForm.Categorie)}}
         {{ form_row(registrationForm.Grade)}}
         {{ form_row(registrationForm.Service)}}
+        {{ form_row(registrationForm.password)}}
+
+        {#
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
+        
         {{ form_row(registrationForm.agreeTerms) }}
+        #}
 
         <button type="submit" class="btn">Ajouter</button>
     {{ form_end(registrationForm) }}

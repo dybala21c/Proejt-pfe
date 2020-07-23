@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EnseignantRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EnseignantRepository::class)
@@ -51,6 +52,7 @@ class Enseignant implements UserInterface
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\LessThan("now")
      */
     private $Date_Naissance;
 

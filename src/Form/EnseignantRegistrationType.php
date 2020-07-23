@@ -14,6 +14,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -25,7 +27,13 @@ class EnseignantRegistrationType extends AbstractType
         $builder
             ->add('email')
             //->add('roles')
-            ->add('password')
+            ->add('password', RepeatedType::class,[
+               'type' => PasswordType::class,
+               'invalid_message' => 'Mot de pass incorect.',
+               'required' => true,
+               'first_options' => ['label' => 'Password'], 
+               'second_options' => ['label' => 'Repeat Password'],
+            ])
             ->add('Matricule')
             ->add('Name',TextType::class)
             ->add('Prenom',TextType::class)

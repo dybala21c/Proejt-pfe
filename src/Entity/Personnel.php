@@ -6,6 +6,7 @@ use App\Repository\PersonnelRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PersonnelRepository::class)
@@ -33,26 +34,35 @@ class Personnel implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractère")
+     * @Assert\Length(max="25", maxMessage="Votre mot de passe ne doit pas depasser 25 caractères")
      */
     private $password;
 
     /**
      * @ORM\Column(type="integer", nullable=false)
+     * @Assert\Length(min="8", min=Message="Votre CIN ne doit pas faire minimum 8 caractère")
+     * @Assert\Length(max="8", max=Message="Votre CIN ne doit pas depasser 8 caractères")
      */
     private $Cin;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(min="2", min=Message="Votre nom ne doit pas faire minimum 2 caractère")
+     * @Assert\Length(max="20", max=Message="Votre nom ne doit pas depasser 20 caractères")
      */
     private $Nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="2", min=Message="Votre prénom ne doit pas faire minimum 2 caractère")
+     * @Assert\Length(max="20", max=Message="Votre prénom ne doit pas depasser 20 caractères")
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="2", min=Message="L'adresse ne doit pas faire minimum 2 caractère")
      */
     private $Adresse;
 
@@ -63,6 +73,7 @@ class Personnel implements UserInterface
 
     /**
      * @ORM\Column(type="date",nullable=false)
+     * @Assert\LessThan("now")
      */
     private $DateNaissance;
 
