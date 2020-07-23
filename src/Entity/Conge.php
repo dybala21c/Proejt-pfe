@@ -32,6 +32,11 @@ class Conge
      */
     private $DateFin;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Enseignant::class)
+     */
+    private $Enseignant;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Conge
     public function setDateFin(\DateTimeInterface $DateFin): self
     {
         $this->DateFin = $DateFin;
+
+        return $this;
+    }
+
+    public function getEnseignant(): ?Enseignant
+    {
+        return $this->Enseignant;
+    }
+
+    public function setEnseignant(?Enseignant $Enseignant): self
+    {
+        $this->Enseignant = $Enseignant;
 
         return $this;
     }

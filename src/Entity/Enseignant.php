@@ -99,6 +99,11 @@ class Enseignant implements UserInterface
      */
     private $sceance;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $Age;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -317,6 +322,18 @@ class Enseignant implements UserInterface
     public function setSceance(?Sceance $sceance): self
     {
         $this->sceance = $sceance;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->Age;
+    }
+
+    public function setAge(int $Age): self
+    {
+        $this->Age = $Age;
 
         return $this;
     }

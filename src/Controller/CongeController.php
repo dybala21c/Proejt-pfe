@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Conge;
+use App\Entity\Enseignant;
 use App\Form\CongeType;
 use App\Repository\CongeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,15 +27,20 @@ class CongeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="conge_new", methods={"GET","POST"})
+     * @Route("/ajouter/{id}", name="conge_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, $id): Response
     {
+        $enseignant = new Enseignant();
+        $repository =$this->getDoctrine()->getManager()->getRepository(Enseignant::class);
+        $enseignant = $repository->find($id);
         $conge = new Conge();
         $form = $this->createForm(CongeType::class, $conge);
         $form->handleRequest($request);
-
+        $conge->setEnseignant($enseignant);
         if ($form->isSubmitted() && $form->isValid()) {
+            $FormData = $form->getData();
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($conge);
             $entityManager->flush();
@@ -91,4 +97,6 @@ class CongeController extends AbstractController
 
         return $this->redirectToRoute('conge_index');
     }
+
+  
 }

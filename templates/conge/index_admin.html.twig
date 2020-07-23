@@ -1,4 +1,4 @@
-{% extends 'base_user_enseignant.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Conge index{% endblock %}
 
@@ -22,10 +22,9 @@
                 <td>{{ conge.Type }}</td>
                 <td>{{ conge.DateDebut ? conge.DateDebut|date('Y-m-d') : '' }}</td>
                 <td>{{ conge.DateFin ? conge.DateFin|date('Y-m-d') : '' }}</td>
-               {# <td>
-                    <a href="{{ path('conge_show', {'id': conge.id}) }}">show</a>
-                    <a href="{{ path('conge_edit', {'id': conge.id}) }}">edit</a>
-                </td> #}
+                <td>
+                    <a href="#" class="text-primary">Voir en pdf</a>
+                </td> 
             </tr>
         {% else %}
             <tr>
@@ -35,5 +34,5 @@
         </tbody>
     </table>
 
-    <a href="{{path('conge_new',{'id':app.user.id})}}">Faites votre demande de congé</a>
+    
 {% endblock %}

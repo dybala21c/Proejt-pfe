@@ -15,6 +15,55 @@
                 <th>Nom</th>
                 <td>{{ enseignant.name }}</td>
             </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ enseignant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ enseignant.email }}</td>
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <th>{{ enseignant.DateNaissance ? enseignant.DateNaissance|date('Y-m-d') : '' }}</th>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ enseignant.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ enseignant.age }}</td>
+            </tr>
+            <tr>
+                <th>Nationalité</th>
+                <td>{{ enseignant.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ enseignant.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Grade</th>
+                <td>{{ enseignant.grade.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Bureau</th>
+                <td>{{ enseignant.bureau.numero }}</td>
+            </tr>
+            <tr>
+                <th>Spécialite</th>
+                <td>{{ enseignant.specialite.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ enseignant.Niveau.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Sceance</th>
+                <td>{{ enseignant.Sceance.libelle }}</td>
+            </tr>
+            
         </tbody>
     </table>
 
