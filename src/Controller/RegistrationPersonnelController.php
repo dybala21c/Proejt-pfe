@@ -47,7 +47,7 @@ class RegistrationPersonnelController extends AbstractController
     }
 
      /**
-     * @Route("/list", name="list_personnel", methods={"GET"})
+     * @Route("/listes", name="list_personnel", methods={"GET"})
      */
     public function index(Request $request,PaginatorInterface $paginatorInterface)
     {

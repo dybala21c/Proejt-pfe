@@ -31,6 +31,7 @@ class RegistrationFormType extends AbstractType
             ->add('Adresse',TextType::class)
             ->add('Telephone',IntegerType::class)
             ->add('DateNaissance',DateType::class)
+            ->add('Service',TextType::class)
             ->add('Bureau',EntityType::class,[
                 'class'=>Bureau::class,
                 'choice_label'=>'Numero'
@@ -42,7 +43,7 @@ class RegistrationFormType extends AbstractType
             ->add('Grade',EntityType::class,[
                 'class'=>Grade1::class,
                 'choice_label'=>'Libelle'
-            ])
+            ])           
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [

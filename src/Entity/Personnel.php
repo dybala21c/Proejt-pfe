@@ -81,6 +81,11 @@ class Personnel implements UserInterface
      */
     private $Grade;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Service;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -258,6 +263,18 @@ class Personnel implements UserInterface
     public function setGrade(?Grade1 $Grade): self
     {
         $this->Grade = $Grade;
+
+        return $this;
+    }
+
+    public function getService(): ?string
+    {
+        return $this->Service;
+    }
+
+    public function setService(string $Service): self
+    {
+        $this->Service = $Service;
 
         return $this;
     }

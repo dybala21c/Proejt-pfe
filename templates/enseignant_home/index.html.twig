@@ -11,7 +11,7 @@
         {% for annonce_enseignant in annonce_enseignants %}
             
                
-                <p><a href="{{path('annonce_enseignant_show',{'id': annonce_enseignant.id})}}">{{ annonce_enseignant.Titre }}</a></p>
+                <p ><a href="{{path('annonce_enseignant_show',{'id': annonce_enseignant.id})}}" class="text-primary">{{ annonce_enseignant.Titre }}</a></p>
                 <p>{{ annonce_enseignant.DateAjout ? annonce_enseignant.DateAjout|date('Y-m-d') : '' }}</p>
                 <p>####################################################################################################</p>
                

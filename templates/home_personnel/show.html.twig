@@ -1,0 +1,24 @@
+{% extends 'base_user_personnel.html.twig' %}
+
+{% block title %}Annonce{% endblock %}
+
+{% block body %}
+    <h1>Annonce</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+               
+                <td>{{ annonce.Titre }}</td>
+            </tr>
+            <tr>
+               
+                <td>{{ annonce.Contenu }}</td>
+            </tr>
+            <tr>
+               
+                <td>{{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
