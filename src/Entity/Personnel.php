@@ -41,28 +41,21 @@ class Personnel implements UserInterface
 
     /**
      * @ORM\Column(type="integer", nullable=false)
-     * @Assert\Length(min="8", min=Message="Votre CIN ne doit pas faire minimum 8 caractère")
-     * @Assert\Length(max="8", max=Message="Votre CIN ne doit pas depasser 8 caractères")
      */
     private $Cin;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(min="2", min=Message="Votre nom ne doit pas faire minimum 2 caractère")
-     * @Assert\Length(max="20", max=Message="Votre nom ne doit pas depasser 20 caractères")
      */
     private $Nom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="2", min=Message="Votre prénom ne doit pas faire minimum 2 caractère")
-     * @Assert\Length(max="20", max=Message="Votre prénom ne doit pas depasser 20 caractères")
      */
     private $Prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min="2", min=Message="L'adresse ne doit pas faire minimum 2 caractère")
      */
     private $Adresse;
 

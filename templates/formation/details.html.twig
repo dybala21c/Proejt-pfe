@@ -20,7 +20,7 @@
 
     <a href="{{ path('list_formation') }}">Retour</a>
 
-    <a href="{{ path('formation_edit', {'id': formation.id}) }}">edit</a>
+    <a href="{{ path('formation_edit', {'id': formation.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
 
     {{ include('formation/_delete.html.twig') }}
 {% endblock %}

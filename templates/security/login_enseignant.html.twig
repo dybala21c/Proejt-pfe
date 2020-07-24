@@ -82,7 +82,7 @@
                         <div class="form-top">
                             <div class="form-top-left">
                                 <h3>Connectez-vous!</h3>
-                                <p>Entrer votre Email et password :</p>
+                                <p>Entrer votre Email et Mot de passe :</p>
                             </div>
                             <div class="form-top-right">
                                 <i class="fa fa-key"></i>
@@ -96,7 +96,7 @@
 
                                 {% if app.user %}
                                    <div class="mb-3">
-                                      Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                                      Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnection</a>
                                     </div>
                                 {% endif %}
                                 <div class="input-group form-group">

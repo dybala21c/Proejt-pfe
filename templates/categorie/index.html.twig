@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Liste des Categories</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,9 +19,9 @@
                 <td>{{ categorie.id }}</td>
                 <td>{{ categorie.Libelle }}</td>
                 <td>
-                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                     </td>
-                  <td>  <a href="{{ path('categorie_edit', {'id': categorie.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                  <td>  <a href="{{ path('categorie_edit', {'id': categorie.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -32,5 +32,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('categorie_new') }}">Ajouter</a>
+    <a href="{{ path('categorie_new') }}" class="btn btn-success">Ajouter</a>
 {% endblock %}

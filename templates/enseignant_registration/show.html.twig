@@ -67,9 +67,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('list_enseignant') }}"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    <a href="{{ path('list_enseignant') }}"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
 
-    <a href="{{ path('edit_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+    <a href="{{ path('edit_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
 
     {{ include('enseignant_registration/_delete.html.twig') }}
 {% endblock %}

@@ -18,7 +18,7 @@ security:
         in_memory: { memory: ~ }
         app_user_provider:
             entity:
-                class: App\Entity\Enseignant
+                class: App\Entity\Administrateur
                 property: email
         # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)

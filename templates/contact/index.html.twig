@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Contact index</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
             <tr>
                 <th>Id</th>
@@ -27,7 +27,7 @@
                 <td>{{ contact.Objet }}</td> 
                 <td>{{ contact.Message }}</td>
                 <td>
-                    <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
+                    <a href="{{ path('contact_show', {'id': contact.id}) }}" class="btn btn-success">show</a>
                 </td>
             </tr>
         {% else %}

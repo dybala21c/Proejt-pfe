@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Liste des annonces</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,10 +23,10 @@
                 <td>{{ annonce.Contenu }}</td>
                 <td>{{ annonce.DateAjout ? annonce.DateAjout|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('annonce_show', {'id': annonce.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a href="{{ path('annonce_show', {'id': annonce.id}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                 </td>
                 <td>
-                    <a href="{{ path('annonce_edit', {'id': annonce.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    <a href="{{ path('annonce_edit', {'id': annonce.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
      {{ knp_pagination_render( annonces )}}
-    <a href="{{ path('annonce_new') }}">Ajouter</a>
+    <a href="{{ path('annonce_new') }}" class="btn btn-success">Ajouter</a>
 {% endblock %}

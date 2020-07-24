@@ -1,0 +1,38 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}cv index{% endblock %}
+
+{% block body %}
+    <h1>Les Cv</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Nom</th>
+                
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for voiCv in enseignant %}
+            <tr>
+                <td>{{ voiCv.id }}</td>
+                <td>{{ voiCv.email }}</td>
+                 <td>{{ voiCv.name }}</td>
+               
+                <td>
+                    <a href="{{asset('Cv/' ~ voiCv.cv) }} " target="_blank" class="text-primary">Voir en pdf</a>
+                </td> 
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Vous n'avez pas de congé </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

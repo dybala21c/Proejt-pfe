@@ -106,6 +106,11 @@ class Enseignant implements UserInterface
      */
     private $Age;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Cv;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -336,6 +341,18 @@ class Enseignant implements UserInterface
     public function setAge(int $Age): self
     {
         $this->Age = $Age;
+
+        return $this;
+    }
+
+    public function getCv(): ?string
+    {
+        return $this->Cv;
+    }
+
+    public function setCv(string $Cv): self
+    {
+        $this->Cv = $Cv;
 
         return $this;
     }

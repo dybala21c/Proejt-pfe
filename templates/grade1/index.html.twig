@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Liste des Grades</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
             <tr>
                 <th>Id</th>
@@ -33,5 +33,5 @@
         </tbody>
     </table>
     {{ knp_pagination_render( grade1s )}}
-    <a href="{{ path('grade1_new') }}">Ajouter</a>
+    <a href="{{ path('grade1_new') }}" class="btn btn-success">Ajouter</a>
 {% endblock %}

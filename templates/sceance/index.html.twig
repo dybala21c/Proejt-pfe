@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Sceance index</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
             <tr>
                 <th>Id</th>
@@ -30,5 +30,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('sceance_new') }}">Ajouter</a>
+    <a href="{{ path('sceance_new') }}" class="btn btn-success">Ajouter</a>
 {% endblock %}

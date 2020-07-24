@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Enseignant;
 use App\Form\EnseignantRegistrationType;
+use App\Form\EnseignantRegistrationType2;
 use App\Repository\EnseignantRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -14,20 +15,42 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class EnseignantRegistrationController extends AbstractController
 {
     /**
      * @Route("/enseignant/registration", name="enseignant_registration")
      */
-    public function EnseignantRegister(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $passwordEncoder)
+    public function EnseignantRegister(Request $request, SluggerInterface $slugger, EntityManagerInterface $manager, UserPasswordEncoderInterface $passwordEncoder)
     {
         $enseignant = new Enseignant();
         $form = $this->createForm(EnseignantRegistrationType::class, $enseignant);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            
+            $brochureFile = $form->get('Cv')->getData();
+
+            if ($brochureFile){
+            $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($originalFilename);
+            $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+            try{
+                $brochureFile->move(
+                    $this->getParameter('brochures_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e){
+
+            }
+
+            $enseignant->setCv($newFilename);
+            }
+
             $enseignant->setPassword(
                 $passwordEncoder->encodePassword(
                     $enseignant,
@@ -83,12 +106,31 @@ class EnseignantRegistrationController extends AbstractController
     /**
      * @Route("/{id}/edit", name="edit_enseignant", methods={"GET","POST"})
      */
-    public function edit(Request $request, Enseignant $enseignant, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function edit(Request $request, SluggerInterface $slugger, Enseignant $enseignant, UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        $form = $this->createForm(EnseignantRegistrationType::class, $enseignant);
+        $form = $this->createForm(EnseignantRegistrationType2::class, $enseignant);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $brochureFile = $form->get('Cv')->getData();
+
+            if ($brochureFile){
+            $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($originalFilename);
+            $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+            try{
+                $brochureFile->move(
+                    $this->getParameter('brochures_directory'),
+                    $newFilename
+                );
+            } catch (FileException $e){
+
+            }
+
+            $enseignant->setCv($newFilename);
+            }
 
             $enseignant->setPassword(
                 $passwordEncoder->encodePassword(
@@ -101,7 +143,7 @@ class EnseignantRegistrationController extends AbstractController
             return $this->redirectToRoute('list_enseignant');
         }
 
-        return $this->render('enseignant_registration/index.html.twig', [
+        return $this->render('enseignant_registration/edit.html.twig', [
             'enseignant' => $enseignant,
             'titre_enseignant' => 'Modifier',
             'form' => $form->createView(),

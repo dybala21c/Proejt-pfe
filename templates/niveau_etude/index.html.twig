@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Liste des Niveaux d'étude</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,10 +19,10 @@
                 <td>{{ niveau_etude.id }}</td>
                 <td>{{ niveau_etude.Libelle }}</td>
                 <td>
-                    <a href="{{ path('niveau_etude_show', {'id': niveau_etude.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a href="{{ path('niveau_etude_show', {'id': niveau_etude.id}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                 </td>
                 <td>
-                    <a href="{{ path('niveau_etude_edit', {'id': niveau_etude.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    <a href="{{ path('niveau_etude_edit', {'id': niveau_etude.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
     {{ knp_pagination_render( niveau_etudes )}}
-    <a href="{{ path('niveau_etude_new') }}">Ajouter</a>
+    <a href="{{ path('niveau_etude_new') }}" class="btn btn-success">Ajouter</a>
 {% endblock %}

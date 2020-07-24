@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Conge;
+use App\Entity\Enseignant;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,7 +22,7 @@ class AdminIndexController extends AbstractController
     }
 
     /**
-     * @Route("/list", name="conge_admin", methods={"GET"})
+     * @Route("/list", name="conge_cote_admin", methods={"GET"})
      */
     public function list(): Response
     {
@@ -31,4 +32,17 @@ class AdminIndexController extends AbstractController
             'conges' => $conge,
         ]);
     }
+
+    /**
+     * @Route("/Viewcv", name="conge_admin", methods={"GET"})
+     */
+    public function voirCv(): Response
+    {
+        
+        $enseignant = $this->getDoctrine()->getRepository(Enseignant::class)->findAll();
+        return $this->render('conge/VoirCv.html.twig', [
+            'enseignant' => $enseignant,
+        ]);
+    }
+
 }

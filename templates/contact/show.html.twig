@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Contact</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -34,7 +34,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('contact_index') }}">Retour</a>
+    <a href="{{ path('contact_index') }}" ><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
 
     {{ include('contact/_delete_form.html.twig') }}
 {% endblock %}

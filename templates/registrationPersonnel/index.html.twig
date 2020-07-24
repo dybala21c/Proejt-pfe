@@ -5,7 +5,7 @@
 {% block body %}
     <h1>la liste des personnels</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
             <tr>
                 <th>Id</th>
@@ -58,5 +58,5 @@
         </tbody>
     </table>
      {{ knp_pagination_render( personnels )}}
-    <a href="{{ path('app_register1') }}">Ajouter un personnel</a>
+    <a href="{{ path('app_register1') }}" class="btn btn-success">Ajouter personnel</a>
 {% endblock %}

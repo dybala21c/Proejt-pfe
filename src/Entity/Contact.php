@@ -47,6 +47,11 @@ class Contact
      */
     private $Personnel;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Enseignant::class)
+     */
+    private $Enseignant;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Contact
     public function setPersonnel(?Personnel $Personnel): self
     {
         $this->Personnel = $Personnel;
+
+        return $this;
+    }
+
+    public function getEnseignant(): ?Enseignant
+    {
+        return $this->Enseignant;
+    }
+
+    public function setEnseignant(?Enseignant $Enseignant): self
+    {
+        $this->Enseignant = $Enseignant;
 
         return $this;
     }

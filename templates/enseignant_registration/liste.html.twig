@@ -5,7 +5,7 @@
 {% block body %}
     <h1>la liste des enseignants</h1>
 
-    <table class="table">
+    <table class="table table-striped jambo_table bulk_action">
         <thead>
             <tr>
                 <th>Id</th>
@@ -15,6 +15,7 @@
                 <th>email</th>
                 <th>Adresse</th>
                 <th>Telephone</th>
+                <th>CV</th>
                 <th>DateNaissance</th>
                
 
@@ -31,15 +32,16 @@
                 <td>{{ enseignant.email }}</td>
                 <td>{{ enseignant.Adresse }}</td>
                 <td>{{ enseignant.Telephone }}</td>
+                <td><a href="{{asset('Cv/' ~ enseignant.cv)}}">{{enseignant.cv }}</a></td>
                 <td>{{ enseignant.DateNaissance ? enseignant.DateNaissance|date('Y-m-d') : '' }}</td>
              
                
                 <td>
-                    <a href="{{ path('show_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a href="{{ path('show_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                 </td>
                  
                 <td>
-                    <a href="{{ path('edit_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    <a href="{{ path('edit_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
                 </td>
                 
              
@@ -53,5 +55,5 @@
         </tbody>
     </table>
      {{ knp_pagination_render( enseignants )}}
-    <a href="{{ path('enseignant_registration') }}">Ajouter un enseignant</a>
+    <a href="{{ path('enseignant_registration') }}" class="btn btn-success">Ajouter enseignant</a>
 {% endblock %}
