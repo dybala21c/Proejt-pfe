@@ -17,8 +17,9 @@
                 <th>Telephone</th>
                 <th>DateNaissance</th>
                 <th>Bureau</th>
-                <th>Categorie</th>
+                {#<th>Categorie</th>#}
                 <th>Grade</th>
+                <th>Service</th>
                
             </tr>
         </thead>
@@ -34,17 +35,17 @@
                 <td>{{ personnel.Telephone }}</td>
                 <td>{{ personnel.DateNaissance ? personnel.DateNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ personnel.bureau.numero }}</td>
-                <td>{{ personnel.categorie.libelle }}</td>
+                {#<td>{{ personnel.categorie.libelle }}</td>#}
                 <td>{{ personnel.grade.libelle }}</td>
                 <td>{{ personnel.Service }}</td>
                 <td>
 
                 <td>
-                    <a href="{{ path('show_personnel', {'id': personnel.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a href="{{ path('show_personnel', {'id': personnel.id}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                 </td>
                  
                 <td>
-                    <a href="{{ path('edit_personnel', {'id': personnel.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    <a href="{{ path('personnel_edit', {'id': personnel.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
                 </td>
                 
              

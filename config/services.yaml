@@ -6,7 +6,7 @@
 parameters:
     Image_directory: '%kernel.project_dir%/public/formation_image'
     brochures_directory: '%kernel.project_dir%/public/Cv'
-
+ 
 services:
     # default configuration for services in *this* file
     _defaults:

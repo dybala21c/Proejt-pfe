@@ -1,0 +1,37 @@
+{%  extends "base_admin.html.twig" %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>{{ titre_personnel }} Personnel</h1>
+
+    {{ form_start(form) }}
+        
+        {{ form_row(form.Cin) }}
+        {{ form_row(form.Nom) }}
+        {{ form_row(form.Prenom) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.Adresse) }}
+        {{ form_row(form.Telephone)}}
+        {{ form_row(form.DateNaissance) }}
+        {{ form_row(form.Bureau) }}
+        {{ form_row(form.Grade) }}
+        {{ form_row(form.Service) }}
+       
+        
+        
+        <br>
+       <a href="{{ path('list_personnel', {'id': personnel.id}) }}"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+
+        <br>
+        <br>
+        <button type="submit" class="btn btn-success"> Modifier</button>
+
+
+    {{ form_end(form) }}
+    
+{% endblock %}

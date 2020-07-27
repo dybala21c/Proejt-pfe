@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_admin.html.twig' %}
 
 {% block title %}Conge{% endblock %}
 
@@ -28,7 +28,7 @@
 
     <a href="{{ path('conge_index') }}" class="btn btn-success">back to list</a>
 
-    <a href="{{ path('conge_edit', {'id': conge.id}) }}" <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
+   {# <a href="{{ path('conge_edit', {'id': conge.id}) }}" <i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a> #}
 
     {{ include('conge/_delete_form.html.twig') }}
 {% endblock %}

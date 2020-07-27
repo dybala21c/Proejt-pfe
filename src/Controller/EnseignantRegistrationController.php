@@ -51,7 +51,7 @@ class EnseignantRegistrationController extends AbstractController
             $enseignant->setCv($newFilename);
             }
 
-            $enseignant->setPassword(
+            $enseignant->setPassword( 
                 $passwordEncoder->encodePassword(
                     $enseignant,
                     $form->get('password')->getData()
@@ -132,12 +132,12 @@ class EnseignantRegistrationController extends AbstractController
             $enseignant->setCv($newFilename);
             }
 
-            $enseignant->setPassword(
+     /*       $enseignant->setPassword(
                 $passwordEncoder->encodePassword(
                     $enseignant,
                     $form->get('password')->getData()
                 )
-            );
+            );*/
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('list_enseignant');

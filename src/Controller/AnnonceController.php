@@ -43,12 +43,14 @@ class AnnonceController extends AbstractController
     public function new(Request $request): Response
     {
         $annonce = new Annonce();
+
         $form = $this->createForm(AnnonceType::class, $annonce);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($annonce);
+            
             $entityManager->flush();
 
             return $this->redirectToRoute('annonce_index');

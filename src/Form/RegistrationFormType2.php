@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class RegistrationFormType extends AbstractType
+class RegistrationFormType2 extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -38,23 +38,26 @@ class RegistrationFormType extends AbstractType
                 'class'=>Bureau::class,
                 'choice_label'=>'Numero'
             ])
-            /*->add('Categorie',EntityType::class,[
+            /*
+            ->add('Categorie',EntityType::class,[
                 'class'=>Categorie::class,
                 'choice_label'=>'Libelle'
             ])*/
             ->add('Grade',EntityType::class,[
                 'class'=>Grade1::class,
                 'choice_label'=>'Libelle'
-            ])           
-            /*->add('agreeTerms', CheckboxType::class, [
+            ])
+            /*           
+            ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
                         'message' => 'You should agree to our terms.',
                     ]),
                 ],
-            ])*/
-            ->add('password', PasswordType::class)
+            ])
+
+            ->add('password', PasswordType::class)*/
         ;
     }
 

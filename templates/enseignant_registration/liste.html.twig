@@ -9,14 +9,22 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Matricule</th>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th>Matricule</th>
-                <th>email</th>
+                <th>DateNaissance</th>
+                <th>Age</th>
+                <th>Email</th>
                 <th>Adresse</th>
                 <th>Telephone</th>
+                <th>Nationnalité</th>
+                <th>Bureau</th>
+                <th>Grade</th>
+                <th>Spécialité</th>
+                <th>Niveau d'étude</th>
+                <th>Scéance</th>
                 <th>CV</th>
-                <th>DateNaissance</th>
+                
                
 
                
@@ -26,14 +34,22 @@
         {% for enseignant in enseignants %} 
             <tr>
                 <td>{{ enseignant.id }}</td>
+                <td>{{ enseignant.Matricule }}</td>
                 <td>{{ enseignant.Name }}</td>
                 <td>{{ enseignant.Prenom }}</td>
-                <td>{{ enseignant.Matricule }}</td>
+                <td>{{ enseignant.DateNaissance ? enseignant.DateNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ enseignant.Age }}</td>
                 <td>{{ enseignant.email }}</td>
                 <td>{{ enseignant.Adresse }}</td>
                 <td>{{ enseignant.Telephone }}</td>
+                <td>{{ enseignant.Nationalite }}</td>
+                <td>{{ enseignant.bureau.numero }}</td>
+                <td>{{ enseignant.Grade.Libelle }}</td>
+                <td>{{ enseignant.specialite.Libelle }}</td>
+                <td>{{ enseignant.Niveau.Libelle }}</td>
+                <td>{{ enseignant.Sceance.Libelle }}</td>
                 <td><a href="{{asset('Cv/' ~ enseignant.cv)}}">{{enseignant.cv }}</a></td>
-                <td>{{ enseignant.DateNaissance ? enseignant.DateNaissance|date('Y-m-d') : '' }}</td>
+                
              
                
                 <td>

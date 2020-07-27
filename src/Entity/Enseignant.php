@@ -32,11 +32,14 @@ class Enseignant implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractères")
      */
     private $password;
 
     /**
      * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
+     * @Assert\Length(min="8", minMessage="Votre matricule doit faire minimum 8 caractères")
      */
     private $Matricule;
 
@@ -63,6 +66,7 @@ class Enseignant implements UserInterface
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
      */
     private $Telephone;
 

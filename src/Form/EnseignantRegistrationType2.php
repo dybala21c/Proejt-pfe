@@ -48,7 +48,7 @@ class EnseignantRegistrationType2 extends AbstractType
             ->add('Adresse',TextType::class)
             ->add('Telephone',IntegerType::class)
             ->add('Nationalite', CountryType::class)
-            ->add('Age',IntegerType::class)
+            ->add('Age',IntegerType::class) 
             ->add('bureau',EntityType::class,[
                 'class'=>Bureau::class,
                 'choice_label'=>'Numero'

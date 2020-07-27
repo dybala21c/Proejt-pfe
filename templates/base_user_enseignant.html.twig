@@ -59,13 +59,9 @@
                         <ul class="nav navbar-nav">
                             <li><a href="#">Enseignant</a></li>
                             <li><a href="{{path('formation')}}">Formation</a></li>
-                            <li><a href="#">Conférence</a></li>
-                            <li><a href="#">Seminaire</a></li> 
                             <li><a href="{{path('conge_index')}}">Congé</a></li>
-                            <li><a href="#">Mutation</a></li>
-                            
-                             <li><a href="{{path('app_logout')}}">Deconnexion</a>
-                           
+                            <li><a href="{{path('add_contact_enseignant',{'id':app.user.id})}}">Contactez-nous</a></li>
+                            <li><a href="{{path('app_logout')}}">Deconnexion</a></li>                          
                         </ul>
                     </div>
                     <!--/.nav-collapse -->
@@ -89,7 +85,7 @@
                 <div class="fill" style="background-image:url('{{asset("template_user/img/banner-slide-1.jpg")}}');"></div>
                 <div class="carousel-caption slide-up">
                     <h1 class="banner_heading"><span>Gestion Employé </span></h1>
-                    <p class="banner_txt">Bienvenue dans la fenêtre de gestion des employés !</p>
+                    <a class="btn btn-default slide" href="#">Bienvenue sur votre profil Mr  {{ app.user.name }} </a>
                     <div class="slider_btn">
                         <button type="button" class="btn btn-default slide">Learn More <i class="fa fa-caret-right"></i></button>
                         <button type="button" class="btn btn-primary slide">Learn More <i class="fa fa-caret-right"></i></button>
@@ -163,12 +159,9 @@
                         <h4>Liens utiles</h4>
                         <hr/>
                         <ul class="footer-links">
-                            <li><a href="#">Accueil</a></li>
-                            <li><a href="#">Employe</a></li>
-                            <li><a href="#">Activités Scientifique</a></li>
-                            <li><a href="#">Congé</a></li>
-                            <li><a href="#">Sanctions</a></li>
-                            <li><a href="#">Contact</a></li>
+                             <li><a href="#">Enseignant</a></li>
+                            <li><a href="{{path('formation')}}">Formation</a></li>
+                            <li><a href="{{path('conge_index')}}">Congé</a></li>
                         </ul>
                     </div>
                 </div>

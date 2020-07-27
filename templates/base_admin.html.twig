@@ -82,7 +82,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gestion Employé</span></a>
+              <a href="{{ path("admin_index") }}" class="site_title"><i class="fa fa-paw"></i> <span>Gestion Employé</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -114,7 +114,7 @@
                     </ul>
                      <li><a href="#">Demandes<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                          <li><a href="#">Congé</a></li> 
+                          <li><a href="{{path('conge_cote_admin')}}">Congés</a></li> 
                           <li><a href="#">Mutation</a></li>                       
                           <li><a href="#">Attestation Travail</a></li>
                       </ul>
@@ -124,19 +124,18 @@
                      <li><a><i class="fa fa-barcode"></i> Infos<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{path('bureau_index')}}">Bureau</a></li>
-                      <li><a href="{{path('categorie_index')}}">Categorie</a></li>
-                      <li><a href="{{path('specialite_index')}}">Specialite</a></li>
                       <li><a href="{{path('grade1_index')}}">Grade</a></li>
-                       <li><a href="{{path('niveau_etude_index')}}">Niveau</a></li>
+                      <li><a href="{{path('niveau_etude_index')}}">Niveau</a></li>
+                      <li><a href="{{path('sceance_index')}}">Séance</a></li>
+                      <li><a href="{{path('specialite_index')}}">Specialite</a></li>
+
                     </ul>
                   </li>
+
                   <li>
                       <li><a href="{{path('annonce_index')}}">Annonces</a></li>
                   </li>
 
-                   <li>
-                      <li><a href="{{path('conge_cote_admin')}}">Congés</a></li>
-                  </li>
                    <li>
                       <li><a href="#">Mutations</a></li>
                   </li>
@@ -145,10 +144,9 @@
                    <li>
                       <li><a href="{{path('conge_admin')}}">Cv</a></li>
                   </li>
+
                   <li><a href="{{path('contact_index')}}"> Contacts</a></li>
-                 
-   
-                  
+                                
                 </ul>
               </div>
 

@@ -28,12 +28,12 @@
                 <th>{{ enseignant.DateNaissance ? enseignant.DateNaissance|date('Y-m-d') : '' }}</th>
             </tr>
             <tr>
-                <th>Adresse</th>
-                <td>{{ enseignant.adresse }}</td>
-            </tr>
-            <tr>
                 <th>Age</th>
                 <td>{{ enseignant.age }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ enseignant.adresse }}</td>
             </tr>
             <tr>
                 <th>Nationalité</th>
@@ -68,8 +68,10 @@
     </table>
 
     <a href="{{ path('list_enseignant') }}"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
-
+    <br>
+    <br>
     <a href="{{ path('edit_enseignant', {'id': enseignant.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
-
+    <br>
+    <br>
     {{ include('enseignant_registration/_delete.html.twig') }}
 {% endblock %}

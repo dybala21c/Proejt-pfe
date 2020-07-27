@@ -35,12 +35,13 @@ class Personnel implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractère")
-     * @Assert\Length(max="25", maxMessage="Votre mot de passe ne doit pas depasser 25 caractères")
      */
     private $password;
 
     /**
      * @ORM\Column(type="integer", nullable=false)
+     * @ORM\Column(type="string")
+     * @Assert\Length(min="8", minMessage="Votre CIN doit faire minimum 8 caractères")
      */
     private $Cin;
 
@@ -61,6 +62,7 @@ class Personnel implements UserInterface
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Positive
      */
     private $Telephone;
 

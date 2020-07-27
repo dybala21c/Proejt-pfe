@@ -54,6 +54,7 @@ class CongeController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/{id}", name="conge_show", methods={"GET"})
      */
@@ -95,7 +96,7 @@ class CongeController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('conge_index');
+        return $this->redirectToRoute('conge_cote_admin');
     }
 
   

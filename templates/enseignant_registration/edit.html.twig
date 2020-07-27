@@ -16,7 +16,7 @@
         {{ form_row(form.Prenom) }}
         {{ form_row(form.email) }}
         {{ form_row(form.Date_Naissance) }}
-        {{ form_row(form.Age)}}
+        {{ form_row(form.Age) }}
         {{ form_row(form.Adresse) }}
         {{ form_row(form.Telephone) }}
         {{ form_row(form.Nationalite) }}
@@ -29,9 +29,13 @@
         
         
         <br>
-       
+        <a href="{{ path('list_enseignant') }}"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
 
+        <br>
+        <br>
         <button type="submit" class="btn btn-success"> Modifier</button>
+
+
     {{ form_end(form) }}
     
 {% endblock %}

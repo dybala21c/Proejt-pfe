@@ -25,7 +25,11 @@
                 <td>
                     <a href="#" class="text-primary">Voir en pdf</a>
                 </td> 
+                <td>
+                    <a href="{{path('conge_show',{'id':conge.id })}}" class="text-primary">Show</a>
+                </td> 
             </tr>
+            
         {% else %}
             <tr>
                 <td colspan="5">Vous n'avez pas de congé </td>

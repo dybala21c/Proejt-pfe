@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Personnel;
 use App\Form\RegistrationFormType;
+use App\Form\RegistrationFormType2;
+use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -49,7 +51,7 @@ class RegistrationPersonnelController extends AbstractController
      /**
      * @Route("/listes", name="list_personnel", methods={"GET"})
      */
-    public function index(Request $request,PaginatorInterface $paginatorInterface)
+    public function indexPost(Request $request,PaginatorInterface $paginatorInterface)
     {
         
         $personnel = new Personnel();
@@ -78,28 +80,28 @@ class RegistrationPersonnelController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="edit_personnel", methods={"GET","POST"})
+     * @Route("personnel/{id}/edit", name="personnel_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Personnel $personnel, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function editPersonnel(Request $request, Personnel $personnel, UserPasswordEncoderInterface $passwordEncoder): Response
     {
-        $form = $this->createForm(RegistrationFormType::class, $personnel);
+        $form = $this->createForm(RegistrationFormType2::class, $personnel);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $personnel->setPassword(
+           /* $personnel->setPassword(
                 $passwordEncoder->encodePassword(
                     $personnel,
                     $form->get('password')->getData()
                 )
-            );
+            );*/
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('list_personnel');
         }
 
-        return $this->render('registrationPersonnel/index.html.twig', [
-            'enseignant' => $personnel,
+        return $this->render('registrationPersonnel/edit.html.twig', [
+            'personnel' => $personnel,
             'titre_personnel' => 'Modifier',
             'form' => $form->createView(),
         ]);

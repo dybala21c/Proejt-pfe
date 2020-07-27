@@ -1,0 +1,38 @@
+{% extends 'base_user_personnel.html.twig' %}
+{% block title %}Conge index{% endblock %}
+
+{% block body %}
+    <h1>Les congés</h1>
+
+    <table class="table table-striped jambo_table bulk_action">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for cong in conges %}
+            <tr>
+                <td>{{ cong.id }}</td>
+                <td>{{ cong.Type }}</td>
+                <td>{{ cong.DateDebut ? cong.DateDebut|date('Y-m-d') : '' }}</td>
+                <td>{{ cong.DateFin ? cong.DateFin|date('Y-m-d') : '' }}</td>
+               {# <td>
+                    <a href="{{ path('conge_show', {'id': conge.id}) }}">show</a>
+                    <a href="{{ path('conge_edit', {'id': conge.id}) }}">edit</a>
+                </td> #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Vous n'avez pas de congé </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{path('conge_new',{'id':app.user.id})}}" class="btn btn-success">Faites votre demande de congé</a>
+{% endblock %}
