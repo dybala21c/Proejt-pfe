@@ -25,10 +25,10 @@
                 <td>{{ formation.Date ? formation.Date|date('Y-m-d') : '' }}</td>
                 <td><img src="{{asset('formation_image/' ~ formation.photo) }}" height='100' weigth=" 50"> </td>
                  <td>
-                    <a href="{{ path('formation_edit', {'id': formation.id}) }}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                    <a href="{{ path('formation_edit', {'id': formation.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
                 </td>
                  <td>
-                    <a href="{{ path('formation1_show', {'id': formation.id}) }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                    <a href="{{ path('formation1_show', {'id': formation.id}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
                 </td>
                 {#
                    {{ knp_pagination_render( grade1s )}}
@@ -45,5 +45,5 @@
     </table>
 
   
-    <a href="{{ path('formation_new') }}">Ajouter</a>
+    <a href="{{ path('formation_new') }}" class="btn btn-success">Ajouter</a>
 {% endblock %}

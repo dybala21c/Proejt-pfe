@@ -1,7 +1,5 @@
-
-
-{% block title %}Contact{% endblock %}
- {% extends 'base_admin.html.twig' %}
+{% extends 'base_admin.html.twig' %}
+{% block title %}Formation{% endblock %}
 {% block body %}
     <h1>Formation</h1>
 
@@ -18,9 +16,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('list_formation') }}">Retour</a>
-
+    <a href="{{ path('list_formation') }}" ><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+    <br>
+    <br>
     <a href="{{ path('formation_edit', {'id': formation.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
-
+    <br>
+    <br>
     {{ include('formation/_delete.html.twig') }}
 {% endblock %}

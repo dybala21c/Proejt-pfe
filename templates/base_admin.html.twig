@@ -121,7 +121,7 @@
                   </li>
 
                   </li>
-                     <li><a><i class="fa fa-barcode"></i> Infos<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-barcode"></i> Infos<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{path('bureau_index')}}">Bureau</a></li>
                       <li><a href="{{path('grade1_index')}}">Grade</a></li>
@@ -136,10 +136,19 @@
                       <li><a href="{{path('annonce_index')}}">Annonces</a></li>
                   </li>
 
-                   <li>
-                      <li><a href="#">Mutations</a></li>
+                  <li><a><i class="fa fa-flask"></i>Activité scientifique<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="{{path('list_formation')}}">Formations</a></li>
+                      <li><a href="{{path('list_inscription')}}">Les inscrits</a></li>
+
+                    </ul>
                   </li>
-                   
+
+            {#
+                  <li>
+                      <li><a href="{{path('formation1_show')}}">Les formations</a></li>
+                  </li>
+            #}       
                   
                    <li>
                       <li><a href="{{path('conge_admin')}}">Cv</a></li>
@@ -165,7 +174,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="{{path('app_logout')}}" class="user-profile dropdown-toggle"
-                   aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                   aria-haspopup="true" id="navbarDropdown" >
                    Deconnexion
                   </a>
                   

@@ -50,9 +50,20 @@ class InscriptionFormationController extends AbstractController
         ]);
     }
 
+     /**
+     * @Route("/show/inscription/{id}", name="inscription_show")
+     */
+    public function showFormation(InscriptionFormation $inscriptionformation, $id, Request $request, EntityManagerInterface $manager)
+    {
+     
+        return $this->render('inscription_formation/show.html.twig', [
+            'inscriptionformation' => $inscriptionformation,
+        ]);
+    }
+
 
     /**
-     * @Route("/{id}/delete", name="inscription_delete", methods={"DELETE"})
+     * @Route("/{id}/inscrit", name="inscription_delete", methods={"DELETE"})
      */
     public function delete(Request $request, InscriptionFormation $inscriptionformation): Response
     {
@@ -62,7 +73,7 @@ class InscriptionFormationController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('inscription_formation');
+        return $this->redirectToRoute('list_inscription');
     }
 
 

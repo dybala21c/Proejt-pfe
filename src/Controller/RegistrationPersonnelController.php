@@ -61,7 +61,7 @@ class RegistrationPersonnelController extends AbstractController
         $personnel = $paginatorInterface->paginate(
             $donnee,
             $request->query->getInt('page',1),
-            4
+            3
         );
 
         return $this->render('registrationPersonnel/index.html.twig', [
@@ -108,7 +108,7 @@ class RegistrationPersonnelController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="delete_personnel", methods={"DELETE"})
+     * @Route("personnel/{id}/delete", name="delete_personnel", methods={"DELETE"})
      */
     public function delete(Request $request, Personnel $personnel): Response
     {

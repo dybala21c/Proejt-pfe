@@ -84,7 +84,7 @@ class EnseignantRegistrationController extends AbstractController
         $enseignant = $paginatorInterface->paginate(
             $donnee,
             $request->query->getInt('page',1),
-            4
+            3
         );
 
         return $this->render('enseignant_registration/liste.html.twig', [
@@ -151,7 +151,7 @@ class EnseignantRegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/delete", name="delete_enseignant", methods={"DELETE"})
+     * @Route("enseignant/{id}/delete", name="delete_enseignant", methods={"DELETE"})
      */
     public function delete(Request $request, Enseignant $enseignant): Response
     {

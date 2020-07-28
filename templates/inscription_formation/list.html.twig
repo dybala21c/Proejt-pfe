@@ -3,7 +3,7 @@
 {% block title %}formation{% endblock %}
 
 {% block body %}
-    <h1>Liste des Formations</h1>
+    <h1>Liste des inscrits</h1>
 
     <table class="table table-striped jambo_table bulk_action">
         <thead>
@@ -11,8 +11,10 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>email</th>
+                <th>Lieu</th>
                 
-            </tr>
+                
+            </tr
         </thead>
         <tbody>
         {% for inscription in list_formations %}
@@ -21,7 +23,8 @@
                 <td>{{ inscription.nom }}</td>
                 <td>{{ inscription.email }}</td>
                 <td>{{ inscription.formation.lieu }}</td>
-                <td>{{ inscription.enseignant.name }}</td>
+                <td><a href="{{path('inscription_show',{'id':inscription.id})}}">show</a></td>
+                {#<td>{{ inscription.enseignant.name }}</td>
                  
                 {#
                    {{ knp_pagination_render( grade1s )}}

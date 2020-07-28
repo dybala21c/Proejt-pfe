@@ -18,8 +18,11 @@
                 <td>{{ sceance.id }}</td>
                 <td>{{ sceance.Libelle }}</td>
                 <td>
-                    <a href="{{ path('sceance_show', {'id': sceance.id}) }}">Détails</a>
-                    <a href="{{ path('sceance_edit', {'id': sceance.id}) }}">Modifier</a>
+                    <a href="{{ path('sceance_show', {'id': sceance.id}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                </td>
+                 
+                <td>
+                    <a href="{{ path('sceance_edit', {'id': sceance.id}) }}"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
                 </td>
             </tr>
         {% else %}
